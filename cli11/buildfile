@@ -1,0 +1,4 @@
+lib{cli11}: CLI/hxx{*}
+{
+    cxx.export.poptions = "-I$src_base"
+}
