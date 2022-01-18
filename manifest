@@ -1,0 +1,11 @@
+: 1
+name: cli11
+version: 2.1.2-a.0.z
+summary: CLI11 is a command line parser for C++11 and beyond that provides a rich feature set with a simple and intuitive interface.
+license: BSD-3-Clause
+description-file: upstream/README.md
+src-url: https://github.com/CLIUtils/CLI11
+doc-url: https://cliutils.github.io/CLI11/book/
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0
+depends: catch2 ^2.13.7 ; Needed for tests only
