@@ -26,7 +26,7 @@ if ($cxx.target.class == 'windows')
 
 for t: $tests
 {
-    ./: exe{$t}: tests/cxx{$t} tests/hxx{app_helper catch} tests/cxx{main} $libs
+    ./: exe{$t}: cxx{$t} hxx{app_helper catch} cxx{main} $libs
 }
 
 exe{HelpersTest}: test.options = \
