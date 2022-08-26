@@ -1,0 +1,8 @@
+import libs = cli11%lib{cli11}
+import libs += catch2%lib{catch2}
+
+./: exe{cli11-tests} doc{README.md} manifest
+
+exe{cli11-tests}: {hxx cxx}{**} $libs
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

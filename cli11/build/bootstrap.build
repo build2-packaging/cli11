@@ -1,0 +1,6 @@
+project = cli11
+
+using version
+using config
+using install
+using dist
