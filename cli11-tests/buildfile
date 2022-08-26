@@ -3,12 +3,14 @@ import libs += catch2%lib{catch2}
 
 ./: exe{cli11-tests} doc{README.md} manifest
 
-unsupported_tests = tests/mesonTest/* tests/WindowsTest tests/BoostOptionTypeTest tests/informational tests/SubcommandTest
+unsupported_tests = tests/mesonTest/* tests/WindowsTest tests/BoostOptionTypeTest tests/informational tests/SubcommandTest tests/HelpersTest tests/ComplexTypeTest
 
 exe{cli11-tests}: {hxx cxx}{** -{$unsupported_tests}} $libs
 
 # Only add WindowsTest for windows.
 exe{cli11-tests}: tests/cxx{WindowsTest}: include = ($cxx.target.class == 'windows')
+# HelperTests and ComplexTypeTest fails on msvc
+exe{cli11-tests}: tests/cxx{HelpersTest, ComplexTypeTest}: include = ($cxx.target.class != 'windows')
 
 exe{cli11-tests}: test.options = "~Validators: DirectoryExists" "~Validators: CombinedPaths" "~Validators: PathExistsDir" "~Types: LexicalCastParsable"
 
