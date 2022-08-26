@@ -3,6 +3,9 @@ import libs += catch2%lib{catch2}
 
 ./: exe{cli11-tests} doc{README.md} manifest
 
-exe{cli11-tests}: {hxx cxx}{**} $libs
+unsupported_tests = tests/mesonTest/* tests/WindowsTest tests/BoostOptionTypeTest tests/informational tests/SubcommandTest
 
-cxx.poptions =+ "-I$out_root" "-I$src_root"
+exe{cli11-tests}: {hxx cxx}{** -{$unsupported_tests}} $libs
+
+# Only add WindowsTest for windows.
+exe{cli11-tests}: tests/cxx{WindowsTest}: include = ($cxx.target.class == 'windows')
