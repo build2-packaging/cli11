@@ -3,7 +3,7 @@ intf_libs = # Interface dependencies.
 
 ./: lib{cli11} doc{README.md} legal{LICENSE} manifest
 
-lib{cli11}: hxx{**} $intf_libs
+lib{cli11}: CLI/hxx{**} $intf_libs
 
 # Build options.
 #

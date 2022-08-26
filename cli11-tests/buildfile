@@ -9,7 +9,7 @@ exe{cli11-tests}: {hxx cxx}{** -{$unsupported_tests}} $libs
 
 # Only add WindowsTest for windows.
 exe{cli11-tests}: tests/cxx{WindowsTest}: include = ($cxx.target.class == 'windows')
-# HelperTests and ComplexTypeTest fails on msvc
+# HelperTests and ComplexTypeTest fails on msvc @@ TODO: use ($cxx.id != 'msvc') then?
 exe{cli11-tests}: tests/cxx{HelpersTest ComplexTypeTest}: include = ($cxx.target.class != 'windows')
 
 exe{cli11-tests}: test.options = "~Validators: DirectoryExists" "~Validators: CombinedPaths" "~Validators: PathExistsDir" "~Types: LexicalCastParsable"
@@ -18,7 +18,7 @@ if ($cxx.class == 'msvc')
 {
     cxx.coptions += /wd4996
 }
-else
+elif ($cxx.class == 'gcc')
 {
     cxx.coptions += -Wno-deprecated-declarations
 }
