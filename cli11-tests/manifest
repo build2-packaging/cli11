@@ -9,4 +9,4 @@ url: https://github.com/CLIUtils/CLI11
 
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
-depends: catch2 ^3.1.0
+depends: catch2 ^2.13.7
