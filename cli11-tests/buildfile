@@ -9,3 +9,14 @@ exe{cli11-tests}: {hxx cxx}{** -{$unsupported_tests}} $libs
 
 # Only add WindowsTest for windows.
 exe{cli11-tests}: tests/cxx{WindowsTest}: include = ($cxx.target.class == 'windows')
+
+exe{cli11-tests}: test.options = "~Validators: DirectoryExists" "~Validators: CombinedPaths" "~Validators: PathExistsDir" "~Types: LexicalCastParsable"
+
+if ($cxx.class == 'msvc')
+{
+    cxx.coptions += /wd4996
+}
+else
+{
+    cxx.coptions += -Wno-deprecated-declarations
+}
