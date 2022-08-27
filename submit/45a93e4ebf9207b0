@@ -1,0 +1,6 @@
+: 1
+name: cli11-tests
+version: 2.2.0
+project: cli11
+summary: Tests package for cli11 library
+license: BSD-3-Clause
