@@ -1,4 +1,26 @@
-lib{cli11}: CLI/hxx{*}
+intf_libs = # Interface dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+./: lib{cli11} doc{README.md} legal{LICENSE} manifest
+
+lib{cli11}: CLI/hxx{**} $intf_libs
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+# Export options.
+#
+lib{cli11}:
 {
-    cxx.export.poptions = "-I$src_base"
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+# Install recreating subdirectories.
+#
+hxx{*}:
+{
+  install         = include/
+  install.subdirs = true
 }

@@ -17,3 +17,5 @@
 # Use `binary` to make sure certain files are never auto-detected as text.
 #
 #*.png binary
+cli11/CLI symlink=dir
+cli11-tests/tests symlink=dir

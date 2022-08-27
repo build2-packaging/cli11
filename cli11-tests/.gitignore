@@ -22,3 +22,9 @@
 *.exe.dlls/
 *.exe.manifest
 *.pc
+
+cli11-tests
+
+# Testscript output directory (can be symlink).
+#
+test-cli11-tests

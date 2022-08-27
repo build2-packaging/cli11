@@ -1,0 +1,12 @@
+: 1
+name: cli11-tests
+version: 2.2.0
+project: cli11
+summary: Tests package for cli11 library
+license: BSD-3-Clause
+description-file: README.md
+url: https://github.com/CLIUtils/CLI11
+
+depends: * build2 >= 0.15.0
+depends: * bpkg >= 0.15.0
+depends: catch2 ^2.13.7
